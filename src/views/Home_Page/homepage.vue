@@ -50,7 +50,7 @@
                         </div>
                         <div class="card-menu">
                             <div class="card d-inline-block mt-5 mb-2" v-for="item in filteredData" :key="item.id">
-                                <img :src="showImage(item.link_gambar)" alt="" width="250" height="200">
+                                <img :src="(item.link_gambar)" alt="" width="250" height="200">
                                 <div class="card-body">
                                     <h5>{{ item.nama }}</h5>
                                     <h6><span>Rp.</span> {{ item.harga }}</h6>
@@ -90,7 +90,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                             <div class="media" style="width:90%;">
-                                                <img class="mr-3" :src="showImage(item.link_gambar)" width="150px" />
+                                                <img class="mr-3" :src="(item.link_gambar)" width="150px" />
                                                 <div class="media-body">
                                                     <h6 class="mt-0">{{ item.nama }}</h6>
                                                     <button @click="reduceQty(item.id)"
@@ -516,10 +516,7 @@
             totalAll() {
                 const ppn = 10500;
                 return this.listCart.reduce((a, b) => a + b.qty * b.harga + ppn, 0)
-            },
-            showImage(link_gambar) {                
-            return `${process.env.VUE_APP_STATIC_URL}/${link_gambar}`;
-            },
+            },            
 
             showProduct(){
                 axios.get(process.env.VUE_APP_URL + `product/`)
