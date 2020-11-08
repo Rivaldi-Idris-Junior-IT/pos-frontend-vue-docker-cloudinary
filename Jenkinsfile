@@ -64,8 +64,6 @@ pipeline {
             }
         }
 
-
-
         stage('Deploy-deployement') {
             when {
                 expression {
