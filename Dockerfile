@@ -4,6 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+ENV VUE_APP_URL='https://pos2.rivaldiweb.xyz/backend/'
 RUN npm run build
 
 # Production stage 
